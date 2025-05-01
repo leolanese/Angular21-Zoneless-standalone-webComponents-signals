@@ -18,6 +18,7 @@
 - The blink effect will only trigger when the signal(s) read inside the effect change.
 - This gives us fine-grained control over which state changes cause visual feedback in each component.
 
+---
 
 ## Setup
 
@@ -45,13 +46,22 @@ export const appConfig: ApplicationConfig = {
 };
 ```
 
-## Using ChangeDetectionStrategy.OnPush strategy
+---
+
+## Signals
+
+> The paradigm, behind Signals, is very similar to RxJS, but a lot simpler. It is possible to link variables together, so that when one is updated, the other updates automatically. It is also possible to use ChangeDetectionStrategy.OnPush and signal changes will be detected automatically, without having to use this.cd.markForCheck()
+
+---
+
+## ChangeDetectionStrategy.OnPush strategy
 
 Without Zone.js, change detection works differently:
 Now, instead of monitoring every change during each cycle, Angular checks only when:
 
 - Changes are only detected when component inputs change
-- Event emissions trigger change detection (e.g., a click).
+- Event emissions trigger change detection (e.g., a click)
+- No need for manual markForCheck()
 
 ## Managing Changes Without Zone.js
 
